@@ -4,17 +4,20 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 html {
   font-size: 55%;
-  box-sizing: border-box;
 }
 
 body {
   font-family: 'Press Start 2P', sans-serif;
   color: #eee;
   background-color: #222;
+  padding: 10px;
+  height: 100vh;
 }
 
 /* LAYOUT */
