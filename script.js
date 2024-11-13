@@ -18,6 +18,18 @@ document.querySelector('.reset').addEventListener('click', function () {
 
 
 
+// Make color Inverse Function for 1 sec
+const colorSwitch = function () {
+
+    document.body.classList.add("dark-mode");
+
+    //Revert after 1 sec
+    setTimeout(() => {
+        document.body.classList.remove("dark-mode");
+    }, 500);
+
+};
+
 // check Btn
 let checkBtn = document.querySelector('.btnState');
 
@@ -43,7 +55,8 @@ const toggleGifVisibility = function () {
     // Make visible
     gifVisibility.classList.remove('hidden');
     // Change bg-color green
-    document.querySelector('body').style.backgroundColor = '#40c916';
+    // document.querySelector('body').style.backgroundColor = '#40c916';
+    document.body.classList.add("green");
 
     // Impliment after 3 sec
     setTimeout(() => {
@@ -51,7 +64,8 @@ const toggleGifVisibility = function () {
         // Hide Confetti
         gifVisibility.classList.add('hidden');
         // Change bg-color black
-        document.querySelector('body').style.backgroundColor = '#222';
+        // document.querySelector('body').style.backgroundColor = '#222';
+        document.body.classList.remove("green");
     }, 3000);
 };
 
@@ -81,6 +95,9 @@ document.querySelector('.check').addEventListener('click', function () {
         // Done this way because even when empty checkValue is still being validated to number due to Num. Method. default "0"
         msgDisplayed('⛔ Enter a Number!');
 
+        // Invert Color Function
+        colorSwitch();
+
     } else if (checkValue === luckyNumber) {
         msgDisplayed('Congratulations 🎊 ...Continue Playing 👍');
 
@@ -100,8 +117,14 @@ document.querySelector('.check').addEventListener('click', function () {
         // condition; if the value diffrence is less than 4
         msgDisplayed('👌 You are quite close');
 
+        // Invert Color Function
+        colorSwitch();
+
     } else {
         msgDisplayed('🚫 Wrong, Try Again!');
+
+        // Invert Color Function
+        colorSwitch();
     };
 
     // Decrement the chance count for every click event
